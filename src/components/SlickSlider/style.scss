@@ -1,0 +1,45 @@
+.slider-container {
+  margin-bottom: 24px;
+}
+.slick-slider {
+  //   background-color: yellow;
+
+  .slick-list {
+    // background-color: blue;
+
+    // .slick-track {
+    //   background-color: salmon;
+    // }
+
+    .slick-slide {
+      background-color: green;
+      height: 400px;
+      width: 100%; //768px;
+
+      div {
+        height: 100%;
+      }
+
+      & > div {
+        position: relative;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+
+      .image-count {
+        position: absolute;
+        right: 34px;
+        bottom: 20px;
+
+        font-weight: 700;
+        font-size: 16px;
+        line-height: 19px;
+    }
+    }
+  }
+}
