@@ -5,7 +5,7 @@ import { useState } from "react";
 
 export const Mesa01 = () => {
   const { auth, removeToken } = useAuth();
-  const [email, setEmail] = useState(auth);
+  // const [email, setEmail] = useState(auth);
   const navigate = useNavigate();
 
   const logout = (e) => {
@@ -25,7 +25,7 @@ export const Mesa01 = () => {
         </Link>
         {auth && (
           <div className={styles["user-info"]}>
-            <p className={styles["user-email"]}>{email}</p>
+            <p className={styles["user-email"]}>{auth}</p>
             <button
               className={styles["logout-button"]}
               onClick={(e) => logout(e)}
