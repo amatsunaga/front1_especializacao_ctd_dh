@@ -1,7 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import styles from "./ProductDetailPage.module.scss";
+import styles from "./style.module.scss";
 import { useMesa01Products } from "../../../../contexts/Mesa01ProductsContext/useMesa01Products";
 import { Mesa01ProductCard } from "../../../../components/Mesa01ProductCard";
 // import { SlickSlider } from "../../../../components/SlickSlider";
@@ -42,7 +42,7 @@ export const ProductDetailPage = () => {
   }
 
   return (
-    <>
+    <div className={styles["main-container"]}>
       <section className={styles["main-product"]}>
         <div className={styles["image-wrapper"]}>
           <img src={product.thumbnail} alt={product.description} />
@@ -74,6 +74,6 @@ export const ProductDetailPage = () => {
           </ul>
         </div>
       </section>
-    </>
+    </div>
   );
 };
