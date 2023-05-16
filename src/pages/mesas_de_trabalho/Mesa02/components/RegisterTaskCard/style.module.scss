@@ -1,0 +1,51 @@
+.card-container {
+  width: 71.17%;
+  padding: 46px 28px 57px;
+  border-radius: 12px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.25);
+  background: #ffffff;
+
+  .card-title {
+    margin-bottom: 34px;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
+    text-align: center;
+    color: #343434;
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 56px;
+
+    input, select {
+      padding: 6px;
+      border: 0;
+      border-bottom: 1px solid #450b53;
+
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 22px;
+      color: #545454;
+
+    }
+    
+    select {
+        padding-left: 0;
+    }
+
+
+    button {
+      padding: 15px;
+      border: 0;
+      border-radius: 8px;
+      background: #e84118;
+
+      font-weight: 400;
+      font-size: 15px;
+      line-height: 22px;
+      color: #ffffff;
+    }
+  }
+}

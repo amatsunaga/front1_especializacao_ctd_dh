@@ -30,11 +30,17 @@ export const Home = () => {
           <Link to={auth ? "mesa-01/produtos" : "mesa-01"}>
             <li>Mesa 01 - Shop Products</li>
           </Link>
+          <Link to={"mesa-02"}>
+            <li>Mesa 02 - PropTypes</li>
+          </Link>
         </ul>
         <h3>Aulas</h3>
         <ul>
           <Link to={"/aula-03"}>
             <li>Aula 03</li>
+          </Link>
+          <Link to={"/aula-04"}>
+            <li>Aula 04</li>
           </Link>
         </ul>
       </main>
