@@ -19,7 +19,9 @@
     flex-direction: column;
     gap: 56px;
 
-    input, select {
+    input,
+    select {
+      width: 100%;
       padding: 6px;
       border: 0;
       border-bottom: 1px solid #450b53;
@@ -28,13 +30,19 @@
       font-size: 15px;
       line-height: 22px;
       color: #545454;
-
     }
-    
+
     select {
-        padding-left: 0;
+      padding-left: 0;
     }
 
+    .required-message {
+      display: block;
+      font-weight: 400;
+      font-size: 10px;
+      line-height: 15px;
+      color: #e84118;
+    }
 
     button {
       padding: 15px;

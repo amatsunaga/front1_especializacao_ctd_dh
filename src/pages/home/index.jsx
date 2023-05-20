@@ -31,7 +31,7 @@ export const Home = () => {
             <li>Mesa 01 - Shop Products</li>
           </Link>
           <Link to={"mesa-02"}>
-            <li>Mesa 02 - PropTypes</li>
+            <li>Mesa 02 - To Do</li>
           </Link>
         </ul>
         <h3>Aulas</h3>
@@ -40,7 +40,10 @@ export const Home = () => {
             <li>Aula 03</li>
           </Link>
           <Link to={"/aula-04"}>
-            <li>Aula 04</li>
+            <li>Aula 04 - PropTypes</li>
+          </Link>
+          <Link to={"/aula-05"}>
+            <li>Aula 05 - React Queries</li>
           </Link>
         </ul>
       </main>

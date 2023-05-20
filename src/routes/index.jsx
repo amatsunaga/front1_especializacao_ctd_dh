@@ -16,6 +16,8 @@ import { Aula03 } from "../pages/aulas/Aula03";
 import { Login } from "../pages/mesas_de_trabalho/Mesa01/Login";
 import { Aula04 } from "../pages/aulas/Aula04";
 import { Mesa02 } from "../pages/mesas_de_trabalho/Mesa02";
+import Aula05 from "../pages/aulas/Aula05";
+import Aula06 from "../pages/aulas/Aula06";
 
 export default function RoutesConfig() {
   const appRouter = createBrowserRouter([
@@ -46,6 +48,8 @@ export default function RoutesConfig() {
     { path: "aula-02", element: <Aula02 /> },
     { path: "aula-03", element: <Aula03 /> },
     { path: "aula-04", element: <Aula04 /> },
+    { path: "aula-05", element: <Aula05 /> },
+    { path: "aula-06", element: <Aula06 /> },
     { path: "*", element: <NotFound /> },
   ]);
 
