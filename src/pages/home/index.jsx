@@ -33,6 +33,9 @@ export const Home = () => {
           <Link to={"mesa-02"}>
             <li>Mesa 02 - To Do</li>
           </Link>
+          <Link to={"mesa-03"}>
+            <li>Mesa 03 - Diário Eletrônico</li>
+          </Link>
         </ul>
         <h3>Aulas</h3>
         <ul>
