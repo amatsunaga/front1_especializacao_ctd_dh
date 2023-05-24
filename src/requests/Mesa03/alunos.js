@@ -17,7 +17,7 @@ export async function saveAluno(body) {
  * @param {id: string, paylod: {nome: string, matricula: string curso: string, bimestre: string}} editedAluno
  */
 export async function editAluno(editedAluno) {
-  return (await api.put(`/aluno/${editedAluno.id}`, editedAluno.payload)).data;
+  return (await api.put(`/aluno/${editedAluno.id}`, editedAluno)).data;
 }
 
 /**

@@ -5,6 +5,7 @@ import {
   getAlunos,
   saveAluno,
 } from "../../requests/Mesa03/alunos";
+import { toast } from "react-toastify";
 
 export default function useAluno() {
   const queryClient = useQueryClient();
@@ -14,22 +15,37 @@ export default function useAluno() {
   });
 
   const { mutate: addAlunoMutate } = useMutation(saveAluno, {
-    onSuccess: () => queryClient.invalidateQueries(["@alunos"]),
-    onError: () => alert("Erro ao adicionar o aluno"),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["@alunos"]);
+      toast.success("Aluno adicionado com sucesso!");
+    },
+    onError: () => {
+      toast.error("Erro ao adicionar o aluno");
+    },
   });
 
   const EditAlunoMutate = useMutation(editAluno, {
-    onSuccess: () => queryClient.invalidateQueries(["@alunos"]),
-    onError: () => alert("Erro ao editar os dados"),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["@alunos"]);
+      toast.success("Dados editados com sucesso!");
+    },
+    onError: () => {
+      toast.error("Erro ao editar os dados");
+    },
   });
 
   const DeleteAlunoMutate = useMutation(deleteAluno, {
-    onSuccess: () => queryClient.invalidateQueries(["@alunos"]),
-    onError: () => alert("Erro ao deletar o aluno"),
+    onSuccess: () => {
+      queryClient.invalidateQueries(["@alunos"]);
+      toast.success("Aluno excluído com sucesso");
+    },
+    onError: () => {
+      toast.error("Erro ao excluir o aluno");
+    },
   });
 
   return {
-    todos: data,
+    alunos: data,
     isFetching,
     error,
     addAluno: addAlunoMutate,

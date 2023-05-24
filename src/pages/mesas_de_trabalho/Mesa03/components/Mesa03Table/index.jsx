@@ -1,48 +1,31 @@
-import { useQuery } from "@tanstack/react-query";
-import { getAlunos } from "../../requests/Mesa03/alunos";
 import styles from "./style.module.scss";
 
-import { useContext, useRef } from "react";
-import { Mesa03FormDataContext } from "../../contexts/Mesa03/Mesa03FormDataContext";
-import useAluno from "../../hooks/Mesa03/useAluno";
-import editIcon from "../../pages/mesas_de_trabalho/Mesa02/assets/svg/FiEdit.svg";
-import removeIcon from "../../pages/mesas_de_trabalho/Mesa02/assets/svg/FiTrash2.svg";
+import useAluno from "../../../../../hooks/Mesa03/useAluno";
+import editIcon from "../../../Mesa02/assets/svg/FiEdit.svg";
+import removeIcon from "../../../Mesa02/assets/svg/FiTrash2.svg";
 
-export default function Mesa03Table() {
-  const { data, isFetching } = useQuery(["@alunos"], getAlunos);
-  const { formData, setFormData, setStudentId } = useContext(
-    Mesa03FormDataContext
-  );
-    // const id = useRef();
-    // const nome = useRef();
-    // const matricula = useRef();
-    // const curso = useRef();
-    // const bimestre = useRef();
-
+export function Mesa03Table(props) {
+  const { alunos, isFetching } = useAluno();
+  const { formData, setFormData, setStudentId } = props;
   const { deleteAluno } = useAluno();
 
-  function handleEdit(e) {
+  function handleEdit(e, aluno) {
     e.preventDefault();
-
-    const itemId = e.target.parentNode.getAttribute("id");
 
     setFormData({
-      nome: formData.nome,
-      matricula: formData.matricula,
-      curso: formData.curso,
-      bimestre: formData.bimestre,
+      id: aluno._id,
+      nome: aluno.nome,
+      matricula: aluno.matricula,
+      curso: aluno.curso,
+      bimestre: aluno.bimestre,
     });
-
-    setStudentId(itemId);
   }
 
-  function handleDelete(e) {
+  function handleDelete(e, id) {
     e.preventDefault();
 
-    const itemId = e.target.parentNode.getAttribute("id");
-
     confirm("Tem certeza de que deseja excluir o aluno?")
-      ? deleteAluno(itemId)
+      ? deleteAluno(id)
       : null;
   }
 
@@ -52,7 +35,12 @@ export default function Mesa03Table() {
 
   return (
     <section className={styles["section-container"]}>
-      <h2 className={styles["section-title"]}>Alunos Cadastrados</h2>
+      <div className={styles["section-header"]}>
+        <h2 className={styles["section-title"]}>Alunos Cadastrados</h2>
+        <p className={styles["students-total"]}>
+          Total de alunos: {alunos?.data?.length}
+        </p>
+      </div>
       <table>
         <thead>
           <tr>
@@ -65,7 +53,7 @@ export default function Mesa03Table() {
           </tr>
         </thead>
         <tbody>
-          {data?.data?.map((aluno, index) => {
+          {alunos?.data?.map((aluno, index) => {
             return (
               <tr key={index}>
                 <td className={styles["order-data"]}>{index + 1}</td>
@@ -74,20 +62,20 @@ export default function Mesa03Table() {
                 <td className={styles["course-data"]}>{aluno.curso}</td>
                 <td className={styles["bimester-data"]}>{aluno.bimestre}</td>
                 <td className={styles["action-data"]}>
-                  <div className={styles["buttons-wrapper"]} id={aluno._id}>
+                  <div className={styles["buttons-wrapper"]}>
                     <img
                       className={styles["edit-button"]}
                       src={editIcon}
                       alt=""
                       // onClick={() => mutate(props.id, {title: "Título editado", date: new Date()})}
                       // onClick={() => fillStates()}
-                      onClick={(e) => handleEdit(e)}
+                      onClick={(e) => handleEdit(e, aluno)}
                     />
                     <img
                       className={styles["remove-button"]}
                       src={removeIcon}
                       alt=""
-                      onClick={(e) => handleDelete(e)}
+                      onClick={(e) => handleDelete(e, aluno._id)}
                     />
                   </div>
                 </td>

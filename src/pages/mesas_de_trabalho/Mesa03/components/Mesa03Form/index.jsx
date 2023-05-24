@@ -1,15 +1,11 @@
 import { useQuery } from "@tanstack/react-query";
-import { useContext } from "react";
 
-import useAluno from "../../hooks/Mesa03/useAluno";
-import { getCursos } from "../../requests/Mesa03/cursos";
+import useAluno from "../../../../../hooks/Mesa03/useAluno";
+import { getCursos } from "../../../../../requests/Mesa03/cursos";
 import styles from "./style.module.scss";
-import { Mesa03FormDataContext } from "../../contexts/Mesa03/Mesa03FormDataContext";
 
-export function Mesa03Form() {
-  const { formData, setFormData, studentId } = useContext(
-    Mesa03FormDataContext
-  );
+export function Mesa03Form(props) {
+  const { formData, setFormData } = props;
 
   const { data, isFetching } = useQuery(["@cursos"], getCursos, {
     refetchOnWindowFocus: false,
@@ -17,34 +13,25 @@ export function Mesa03Form() {
 
   const { addAluno, editAluno } = useAluno();
 
-  //   const { mutate, error } = useMutation(saveAluno);
-  //   const { mutate, error } = useMutation(() => saveAluno({ ...formData }));
-  // const { mutate, error } = useMutation(saveAluno, {
-  //   onSuccess: () => alert("Salvo com sucesso"),
-  //   onError: () => alert("Erro ao salvar dados"),
-  // });
-
-  console.log("data: ", data?.data?.cursos);
-
-  function save(e) {
-    //   mutate();
+  function edit(e) {
     e.preventDefault();
 
-    // if (studentId) {
-    //   editAluno({
-    //     id: studentId,
-    //     payload: {
-    //       nome: formData.nome,
-    //       matricula: formData.matricula,
-    //       curso: formData.curso,
-    //       bimestre: formData.bimestre,
-    //     },
-    //   });
-    // } else {
+    editAluno({
+      id: formData.id,
+      nome: formData.nome,
+      matricula: formData.matricula,
+      curso: formData.curso,
+      bimestre: formData.bimestre,
+    });
+  }
+
+  function save(e) {
+    e.preventDefault();
+
     addAluno({
       nome: formData.nome,
       matricula: formData.matricula,
-      curso: "Front End II", //formData.curso,
+      curso: formData.curso,
       bimestre: formData.bimestre,
     });
   }
@@ -79,17 +66,19 @@ export function Mesa03Form() {
         value={formData.curso}
         onChange={(e) => setFormData({ ...formData, curso: e.target.value })}
       >
-        {/* {formData.curso ? (
+        {formData.curso ? (
           <option value={formData.name}>{formData.name}</option>
         ) : (
           <option value="" hidden>
             Curso
           </option>
-        )} */}
+        )}
 
-        {data?.data?.cursos?.map((curso) => {
-          <option value={curso.name}>{curso.name}</option>;
-        })}
+        {data?.data?.cursos.map((curso) => (
+          <option value={curso.name} key={curso.id}>
+            {curso.name}
+          </option>
+        ))}
       </select>
       <input
         type="text"
@@ -97,7 +86,7 @@ export function Mesa03Form() {
         value={formData.bimestre}
         onChange={(e) => setFormData({ ...formData, bimestre: e.target.value })}
       />
-      <button onClick={(e) => save(e)}>Salvar</button>
+      <button onClick={(e) => (formData.id ? edit(e) : save(e))}>Salvar</button>
     </form>
   );
 }

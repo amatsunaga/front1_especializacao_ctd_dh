@@ -1,12 +1,14 @@
 import { AuthProvider } from "./contexts/AuthContext/useAuth";
 import { Mesa01ProductsProvider } from "./contexts/Mesa01ProductsContext/useMesa01Products";
 import { FormDataProvider } from "./contexts/Mesa02/FormDataContext";
-import { Mesa03FormDataProvider } from "./contexts/Mesa03/Mesa03FormDataContext";
 import RoutesConfig from "./routes";
+import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
 export default function App() {
+  const client = new QueryClient();
+
   return (
-    <Mesa03FormDataProvider>
+    <QueryClientProvider client={client}>
       <FormDataProvider>
         <AuthProvider>
           <Mesa01ProductsProvider>
@@ -14,6 +16,6 @@ export default function App() {
           </Mesa01ProductsProvider>
         </AuthProvider>
       </FormDataProvider>
-    </Mesa03FormDataProvider>
+    </QueryClientProvider>
   );
 }

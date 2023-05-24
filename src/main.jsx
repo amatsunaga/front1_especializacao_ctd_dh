@@ -3,14 +3,14 @@ import ReactDOM from "react-dom/client";
 import App from "./App.jsx";
 import "./index.css";
 
-import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
+// import { QueryClientProvider, QueryClient } from "@tanstack/react-query";
 
-const client = new QueryClient();
+// const client = new QueryClient();
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <QueryClientProvider client={client}>
+    {/* <QueryClientProvider client={client}> */}
       <App />
-    </QueryClientProvider>
+    {/* </QueryClientProvider> */}
   </React.StrictMode>
 );

@@ -1,12 +1,25 @@
 .section-container {
   min-height: 100vh;
 
-  .section-title {
+  .section-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 28px;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 30px;
-    color: #ffffff;
+
+    .section-title {
+      font-weight: 500;
+      font-size: 20px;
+      line-height: 30px;
+      color: #ffffff;
+    }
+
+    .students-total {
+      font-weight: 300;
+      font-size: 20px;
+      line-height: 30px;
+      color: #ffffff;
+    }
   }
 
   table {
