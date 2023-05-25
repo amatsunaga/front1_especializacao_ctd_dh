@@ -1,7 +1,6 @@
 import { Link, Outlet, useNavigate } from "react-router-dom";
-import styles from "./style.module.scss";
 import { useAuth } from "../../../contexts/AuthContext/useAuth";
-import { useState } from "react";
+import styles from "./style.module.scss";
 
 export const Mesa01 = () => {
   const { auth, removeToken } = useAuth();
