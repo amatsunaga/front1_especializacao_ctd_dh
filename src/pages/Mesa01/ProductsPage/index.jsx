@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
-import { useMesa01Products } from "../../../../contexts/Mesa01ProductsContext/useMesa01Products";
+import { useMesa01Products } from "../../../contexts/Mesa01ProductsContext/useMesa01Products";
 import styles from "./style.module.scss";
-import { Mesa01ProductCard } from "../../../../components/Mesa01ProductCard";
+import { Mesa01ProductCard } from "../../../components/Mesa01ProductCard";
 
 export const ProductsPage = () => {
   const { products } = useMesa01Products([]);
