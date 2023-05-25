@@ -6,13 +6,13 @@ import {
   createBrowserRouter,
   redirect,
 } from "react-router-dom";
-import { ProductDetailPage } from "../pages/mesas_de_trabalho/Mesa01/ProductDetailPage";
-import { ProductsPage } from "../pages/mesas_de_trabalho/Mesa01/ProductsPage";
+import { ProductDetailPage } from "../pages/Mesa01/ProductDetailPage";
+import { ProductsPage } from "../pages/Mesa01/ProductsPage";
 import { Aula02 } from "../pages/aulas/Aula02/Aula02";
 import { Home } from "../pages/home";
 import { NotFound } from "../pages/not-found";
 import { Aula03 } from "../pages/aulas/Aula03";
-import { Login } from "../pages/mesas_de_trabalho/Mesa01/Login";
+import { Login } from "../pages/Mesa01/Login";
 import { Aula04 } from "../pages/aulas/Aula04";
 import { Mesa02 } from "../pages/mesas_de_trabalho/Mesa02";
 import Aula05 from "../pages/aulas/Aula05";
