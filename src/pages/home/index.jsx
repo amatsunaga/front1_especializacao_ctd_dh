@@ -36,6 +36,9 @@ export const Home = () => {
           <Link to={"mesa-03"}>
             <li>Mesa 03 - Diário Eletrônico</li>
           </Link>
+          <Link to={"mesa-03-tailwind"}>
+            <li>Mesa 03 Tailwind - Diário Eletrônico</li>
+          </Link>
         </ul>
         <h3>Aulas</h3>
         <ul>
