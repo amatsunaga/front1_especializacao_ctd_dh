@@ -25,11 +25,11 @@ import { Mesa01 } from "../pages/Mesa01";
 export default function RoutesConfig() {
   const appRouter = createBrowserRouter([
     {
-      path: "/",
+      path: "",
       element: <Home />,
     },
     {
-      path: "/mesa-01",
+      path: "mesa-01",
       element: <Mesa01 />,
       children: [
         { path: "", loader: () => redirect("login") },
@@ -57,7 +57,7 @@ export default function RoutesConfig() {
     { path: "aula-06", element: <Aula06 /> },
     { path: "aula-07", element: <Aula07 /> },
     { path: "*", element: <NotFound /> },
-  ]);
+  ],  { basename: import.meta.env.DEV ? '/' : '/react-vite-gh-pages/' });
 
   return <RouterProvider router={appRouter} />;
 
