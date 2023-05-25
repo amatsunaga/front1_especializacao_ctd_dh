@@ -6,7 +6,6 @@ import {
   createBrowserRouter,
   redirect,
 } from "react-router-dom";
-import { Mesa01 } from "../pages/mesas_de_trabalho/Mesa01";
 import { ProductDetailPage } from "../pages/mesas_de_trabalho/Mesa01/ProductDetailPage";
 import { ProductsPage } from "../pages/mesas_de_trabalho/Mesa01/ProductsPage";
 import { Aula02 } from "../pages/aulas/Aula02/Aula02";
@@ -21,6 +20,7 @@ import Aula06 from "../pages/aulas/Aula06";
 import { Mesa03 } from "../pages/mesas_de_trabalho/Mesa03";
 import { Aula07 } from "../pages/aulas/Aula07";
 import { Mesa03Tailwind } from "../pages/mesas_de_trabalho/Mesa03Tailwind";
+import { Mesa01 } from "../pages/Mesa01";
 
 export default function RoutesConfig() {
   const appRouter = createBrowserRouter([
