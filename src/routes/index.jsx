@@ -25,11 +25,11 @@ import { Mesa01 } from "../pages/Mesa01";
 export default function RoutesConfig() {
   const appRouter = createBrowserRouter([
     {
-      path: "",
+      path: "/",
       element: <Home />,
     },
     {
-      path: "mesa-01",
+      path: "/mesa-01",
       element: <Mesa01 />,
       children: [
         { path: "", loader: () => redirect("login") },
