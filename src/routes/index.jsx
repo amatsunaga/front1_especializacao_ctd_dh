@@ -57,7 +57,7 @@ export default function RoutesConfig() {
     { path: "aula-06", element: <Aula06 /> },
     { path: "aula-07", element: <Aula07 /> },
     { path: "*", element: <NotFound /> },
-  ],  { basename: import.meta.env.DEV ? '/' : '/react-vite-gh-pages/' });
+  ],  { basename: import.meta.env.DEV ? '/' : '/front1_especializacao_ctd_dh/' });
 
   return <RouterProvider router={appRouter} />;
 
