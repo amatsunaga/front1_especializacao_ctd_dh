@@ -1,6 +1,5 @@
 import { BrowserRouter, Outlet, Route, Routes } from "react-router-dom";
 import { Home } from "../../home";
-import { ProductsPage } from "../../mesas_de_trabalho/Mesa01/ProductsPage";
 import { NotFound } from "../../not-found";
 
 export const Aula03 = () => {
